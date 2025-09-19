@@ -206,7 +206,7 @@ This example contains both subvolumes and compression.
       "flags": [],
       "fs_type": "btrfs",
       "mount_options": [
-          "compress=zstd"
+          "compress=lzo"
       ],
       "mountpoint": null,
       "obj_id": "d712357f-97cc-40f8-a095-24ff244d4539",

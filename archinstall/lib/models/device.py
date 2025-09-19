@@ -478,7 +478,7 @@ class Size:
 
 
 class BtrfsMountOption(Enum):
-	compress = 'compress=zstd'
+	compress = 'compress=lzo'
 	nodatacow = 'nodatacow'
 
 
