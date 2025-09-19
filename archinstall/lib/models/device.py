@@ -904,6 +904,10 @@ class PartitionModification:
 			if "noatime" not in self.mount_options:
 				self.mount_options.append("noatime")
 
+		if self.fs_type == FilesystemType.Btrfs:
+			if "commit=120" not in self.mount_options:
+				self.mount_options.append("commit=120")
+
 	@override
 	def __hash__(self) -> int:
 		return hash(self._obj_id)
@@ -1164,6 +1168,13 @@ class LvmVolume:
 		# needed to use the object as a dictionary key due to hash func
 		if not hasattr(self, '_obj_id'):
 			self._obj_id = uuid.uuid4()
+
+		if "noatime" not in self.mount_options:
+			self.mount_options.append("noatime")
+
+		if self.fs_type == FilesystemType.Btrfs:
+			if "commit=120" not in self.mount_options:
+				self.mount_options.append("commit=120")
 
 	@override
 	def __hash__(self) -> int:
