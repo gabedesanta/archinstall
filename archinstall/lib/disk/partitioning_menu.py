@@ -336,6 +336,7 @@ class PartitioningList(ListManager[DiskSegment]):
 						partition.mountpoint = None
 				case 'btrfs_mark_compressed':
 					self._toggle_mount_option(partition, BtrfsMountOption.compress)
+					self._toggle_mount_option(partition, BtrfsMountOption.noatime)
 				case 'btrfs_mark_nodatacow':
 					self._toggle_mount_option(partition, BtrfsMountOption.nodatacow)
 				case 'btrfs_set_subvolumes':
