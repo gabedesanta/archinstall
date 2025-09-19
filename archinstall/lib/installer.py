@@ -358,7 +358,7 @@ class Installer:
 			self._mount_btrfs_subvol(
 				part_mod.dev_path,
 				part_mod.btrfs_subvols,
-				part_mod.mount_options,
+				part_mod.mount_options.append("noatime"),
 			)
 		elif part_mod.is_swap():
 			device_handler.swapon(part_mod.dev_path)
