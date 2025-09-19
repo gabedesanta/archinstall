@@ -375,6 +375,8 @@ class PartitioningList(ListManager[DiskSegment]):
 
 			partition.mount_options = [o for o in partition.mount_options if not o.startswith(BtrfsMountOption.compress.name)]
 
+			partition.mount_options = [o for o in partition.mount_options if not o.startswith(BtrfsMountOption.noatime.name)]
+
 			partition.mount_options.append(option.value)
 		else:
 			partition.mount_options = [o for o in partition.mount_options if o != option.value]
