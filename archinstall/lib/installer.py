@@ -77,6 +77,8 @@ class Installer:
 		self._disk_encryption = disk_config.disk_encryption or DiskEncryption(EncryptionType.NoEncryption)
 		self.target: Path = target
 
+		exit()
+
 		self.init_time = time.strftime('%Y-%m-%d_%H-%M-%S')
 		self.milliseconds = int(str(time.time()).split('.')[1])
 		self._helper_flags: dict[str, str | bool | None] = {

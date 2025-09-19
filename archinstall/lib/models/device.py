@@ -479,7 +479,6 @@ class Size:
 
 class BtrfsMountOption(Enum):
 	compress = 'compress=lzo'
-	noatime = 'noatime'
 	nodatacow = 'nodatacow'
 
 
@@ -899,6 +898,9 @@ class PartitionModification:
 
 		if self.fs_type is None and self.status == ModificationStatus.Modify:
 			raise ValueError('FS type must not be empty on modifications with status type modify')
+
+		if "noatime" not in self.mount_options:
+			self.mount_options.append("noatime")
 
 	@override
 	def __hash__(self) -> int:
